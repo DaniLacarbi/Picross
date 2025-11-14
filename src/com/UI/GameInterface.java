@@ -18,6 +18,7 @@ public class GameInterface extends GridPane {
     int width;
     int height;
     int celleScure;
+    int celleDisplay;
     int maxVite;
 
     public GameInterface(int width, int height, int celleScure){
@@ -25,7 +26,8 @@ public class GameInterface extends GridPane {
         this.width  = width+1;
         this.height = height+1;
         this.celleScure = celleScure;
-        this.maxVite = celleScure/5;
+        this.celleDisplay = celleScure;
+        this.maxVite = celleScure/6;
         updateUI();
     }
 
@@ -34,6 +36,7 @@ public class GameInterface extends GridPane {
         addLabels();
         addButtons();
         showLives();
+        showCells();
         mostraAvvisi();
     }
 
@@ -75,6 +78,7 @@ public class GameInterface extends GridPane {
             if (c.isNotChosen() && !c.isPressato()) {
                 if (c.isDark()) {
                     c.setStyle("-fx-background-color: black; -fx-text-fill: white; -fx-border-color: black;");
+                    celleDisplay--;
                 } else {
                     c.setStyle("-fx-background-color: red; -fx-text-fill: black; -fx-border-color: black;");
                     maxVite--;
@@ -102,6 +106,12 @@ public class GameInterface extends GridPane {
         Label lives = new Label("Vite: " + this.maxVite);
         lives.setFont(new Font(20));
         this.add(lives, 0, width);
+    }
+
+    void showCells(){
+        Label cells = new Label("Cells: " + this.celleDisplay);
+        cells.setFont(new Font(20));
+        this.add(cells, 2, width);
     }
 
     void mostraAvvisi(){
