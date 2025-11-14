@@ -13,7 +13,6 @@ public class GameInterface extends GridPane {
     final int prefWidth = 50;
     final int prefHeight = 50;
     final int fontSize = 20;
-    final int defaultVite = 10;
 
     cellasMap map;
     int width;
@@ -26,7 +25,7 @@ public class GameInterface extends GridPane {
         this.width  = width+1;
         this.height = height+1;
         this.celleScure = celleScure;
-        this.maxVite = defaultVite;
+        this.maxVite = celleScure/5;
         updateUI();
     }
 
@@ -63,7 +62,7 @@ public class GameInterface extends GridPane {
 
     void buttonLogic(MouseEvent e, cella c){
         if (e.getButton() == MouseButton.SECONDARY) {
-            if(!c.isChosen()) {
+            if(c.isNotChosen()) {
                 c.setStyle("-fx-background-color: blue; -fx-text-fill: white; -fx-border-color: black;");
             }
             else {
@@ -73,12 +72,13 @@ public class GameInterface extends GridPane {
         }
 
         else if (e.getButton() == MouseButton.PRIMARY) {
-            if (!c.isChosen() && !c.isPressato()) {
+            if (c.isNotChosen() && !c.isPressato()) {
                 if (c.isDark()) {
                     c.setStyle("-fx-background-color: black; -fx-text-fill: white; -fx-border-color: black;");
                 } else {
                     c.setStyle("-fx-background-color: red; -fx-text-fill: black; -fx-border-color: black;");
                     maxVite--;
+                    c.setWrong();
                 }
                 c.pressed();
             }

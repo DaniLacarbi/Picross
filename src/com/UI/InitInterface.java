@@ -39,7 +39,8 @@ public class InitInterface extends GridPane {
 
         Button b1 = new Button("Inizia");
         b1.setOnMouseClicked(e -> {
-            GameInterface gi = new GameInterface(10, 10, difficolta.get());
+            int celle = (difficolta.get()*difficolta.get()*8)/10;
+            GameInterface gi = new GameInterface(difficolta.get(), difficolta.get(), celle);
             primaryStage.setTitle("Picross");
             primaryStage.setScene(new Scene(gi, 400, 400));
             primaryStage.show();

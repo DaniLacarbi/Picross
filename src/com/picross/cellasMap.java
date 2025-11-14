@@ -53,9 +53,9 @@ public class cellasMap {
     }
 
     public boolean isVerificato(){
-        for (int i = 0; i< cellas.length; i++){
-            for (int j = 0; j< cellas[i].length; j++){
-                if (cellas[i][j].isPressato() != cellas[i][j].isDark()){
+        for (cella[] cella : cellas) {
+            for (cella value : cella) {
+                if ((value.isPressato() != value.isDark()) && !value.isWrong()) {
                     return false;
                 }
             }
