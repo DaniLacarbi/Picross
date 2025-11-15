@@ -1,5 +1,5 @@
 package com.UI;
-import com.picross.Livello;
+import com.picross.Level;
 
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,26 +15,26 @@ public class InitInterface extends GridPane {
         this.setVgap(10);
 
         Label diff = new Label("Difficoltà:");
-        AtomicInteger difficolta = new AtomicInteger(Livello.FACILE.getValue());
+        AtomicInteger difficolta = new AtomicInteger(Level.EASY.getValue());
         ToggleGroup group = new ToggleGroup();
 
         RadioButton rb1 = new RadioButton("Facile");
         rb1.setToggleGroup(group);
         rb1.setOnMouseClicked(_ -> {
-            difficolta.set(Livello.FACILE.getValue());
+            difficolta.set(Level.EASY.getValue());
         });
         rb1.setSelected(true);
 
         RadioButton rb2 = new RadioButton("Medio");
         rb2.setToggleGroup(group);
         rb2.setOnMouseClicked(_ -> {
-            difficolta.set(Livello.MEDIO.getValue());
+            difficolta.set(Level.MEDIUM.getValue());
         });
 
         RadioButton rb3 = new RadioButton("Difficile");
         rb3.setToggleGroup(group);
         rb3.setOnMouseClicked(_ -> {
-            difficolta.set(Livello.DIFFICILE.getValue());
+            difficolta.set(Level.HARD.getValue());
         });
 
         Button b1 = new Button("Inizia");
