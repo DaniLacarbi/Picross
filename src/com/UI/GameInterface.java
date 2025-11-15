@@ -1,6 +1,6 @@
 package com.UI;
-import com.picross.Cell;
-import com.picross.CellsMap;
+import com.picross.cell;
+import com.picross.cellsMap;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -15,7 +15,7 @@ public class GameInterface extends GridPane {
     final int fontSize = 20;
     final int livesRatio = 6;
 
-    CellsMap map;
+    cellsMap map;
     int width;
     int height;
     int darkCells;
@@ -23,7 +23,7 @@ public class GameInterface extends GridPane {
     int lives;
 
     public GameInterface(int width, int height, int celleScure){
-        this.map  = new CellsMap(width,height,celleScure);
+        this.map  = new cellsMap(width,height,celleScure);
         this.width  = width+1;
         this.height = height+1;
         this.darkCells = celleScure;
@@ -63,7 +63,7 @@ public class GameInterface extends GridPane {
         }
     }
 
-    void buttonLogic(MouseEvent e, Cell c){
+    void buttonLogic(MouseEvent e, cell c){
         if (e.getButton() == MouseButton.SECONDARY) {
             if (c.isNotChosen()) {
                 c.setStyle("-fx-background-color: #0692ef; " +
@@ -95,7 +95,7 @@ public class GameInterface extends GridPane {
     void addButtons(){
         for(int i = 1; i < height; i++) {
             for (int j = 1; j < width; j++) {
-                Cell c = map.getCell(i - 1, j - 1);
+                cell c = map.getCell(i - 1, j - 1);
                 c.setOnMouseClicked((MouseEvent e) -> {
                     buttonLogic(e, c);
                     updateUI();

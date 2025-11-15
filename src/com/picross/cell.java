@@ -2,13 +2,13 @@ package com.picross;
 
 import javafx.scene.control.Button;
 
-public class Cell extends Button {
+public class cell extends Button {
     final int dimensions = 100;
     boolean dark;
     boolean pressed;
     boolean chosen;
 
-    public Cell(boolean dark) {
+    public cell(boolean dark) {
         this.dark = dark;
         this.pressed = false;
         this.chosen = false;

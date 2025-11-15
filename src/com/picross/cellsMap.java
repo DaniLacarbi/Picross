@@ -2,16 +2,16 @@ package com.picross;
 
 import java.util.Random;
 
-public class CellsMap {
-    Cell[][] cells;
+public class cellsMap {
+    cell[][] cells;
 
-    public CellsMap(int width, int height, int darkCells) {
-        this.cells = new Cell[width][height];
+    public cellsMap(int width, int height, int darkCells) {
+        this.cells = new cell[width][height];
         Random random = new Random();
         
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                cells[i][j] = new Cell(false);
+                cells[i][j] = new cell(false);
             }
         }
         
@@ -20,19 +20,19 @@ public class CellsMap {
             int j = random.nextInt(height);
 
             if (!cells[i][j].isDark()) {
-                cells[i][j] = new Cell(true);
+                cells[i][j] = new cell(true);
                 darkCells--;
             }
         }
     }
 
-    public Cell getCell(int row, int column){
+    public cell getCell(int row, int column){
         return cells[row][column];
     }
 
     public int countDarkInRows(int row){
         int count = 0;
-        for (Cell[] cell : cells) {
+        for (cell[] cell : cells) {
             if (cell[row].isNotPressed() && cell[row].isDark()) {
                 count++;
             }
