@@ -1,5 +1,4 @@
 package com.UI;
-
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 
@@ -8,14 +7,14 @@ public class Alerts extends Alert {
         super(alertType);
     }
 
-    public void vittoria(){
+    public void victory(){
         this.setTitle("Vittoria");
         this.setHeaderText("Hai vinto!!!");
         this.showAndWait();
         Platform.exit();
     }
 
-    public void sconfitta(){
+    public void defeat(){
         this.setTitle("Morto");
         this.setHeaderText("Sei morto!!!");
         this.showAndWait();

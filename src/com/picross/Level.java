@@ -1,10 +1,10 @@
 package com.picross;
 
-public enum Livello {
-    FACILE(6), MEDIO(8), DIFFICILE(10);
+public enum Level {
+    EASY(6), MEDIUM(8), HARD(10);
     private final int value;
 
-    Livello(int i) {
+    Level(int i) {
         this.value = i;
     }
 
